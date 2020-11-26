@@ -29,12 +29,12 @@ Feature | Tooling
 Data Nodes | Node-groups, Fargate
 Load Balancers | ALB (L7), NLB (L4)
 CNI Plugin | [VPC](https://github.com/aws/amazon-vpc-cni-k8s), [Weave](https://www.weave.works/docs/net/latest/overview/), [Calico](https://docs.projectcalico.org/getting-started/kubernetes/managed-public-cloud/eks)
-App Orchestration | Terraform, Helm
+App Orchestration | [Terraform](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs), [Helm](https://helm.sh/docs/)
 App IAM | [KIAM](https://github.com/uswitch/kiam)
 App Secrets | [External-Secrets](https://github.com/godaddy/kubernetes-external-secrets)
 App Management | Kubectl, Kubernetes Dashboard
 Persistence | Attach to EBS
-Cost | EKS costs $0.10/hour, $72/month. EC2 or Fargate costs by vcpu
+Cost | EKS costs $0.10/hour, $72/month. Data-nodes cost by cluster size (vcpu, memoory) of EC2 or Fargate.
 
 
 ## Kubernetes Cluster Deployment
