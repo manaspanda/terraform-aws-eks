@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+- [Overview](#overview)
 - [Kubernetes Cluster Deployment](#kubernetes-cluster-deployment)
   - [Terraform Initialize](#terraform-initialize)
   - [Terraform Plan](#terraform-plan)
@@ -9,6 +10,32 @@
 - [Configure kubectl](#configure-kubectl)
 - [Install Calico CNI Driver](#install-calico-cni-driver)
 - [Deploy App on Kubernetes](#deploy-app-on-kubernetes)
+
+## Overview
+
+Kubernetes is a portable, extensible, open-source platform for deploying, scaling and managing containerized applications. It has a large, rapidly growing ecosystem on various cloud IaaS providers.
+
+Amazon Elastic Kubernetes Service (EKS) is a managed service that provides Kubernetes control plane as a service, with various native integrations with AWS services. Amazon EKS runs Kubernetes control plane instances across multiple Availability Zones to ensure high-availability. It keeps the control-node cluster healthy and does automatic upgrades and patching to the latest versions of open-source Kubernetes software. Amazon EKS is integrated with many AWS services to provide scalability and security of the applications such as:
+* Amazon ECR for container image management
+* IAM for service and role authentication and authorization
+* Amazon VPC for isolation
+* Compute integration with Node-groups and Fargate
+* Elastic Load Balancing for load distribution
+
+Here are some of the application deployment considerations on Amazon EKS and Kubernetes in general:
+
+Feature | Tooling
+------- | -------
+Data Nodes | Node-groups, Fargate
+Load Balancers | ALB (L7), NLB (L4)
+CNI Plugin | [VPC](https://github.com/aws/amazon-vpc-cni-k8s), [Weave](https://www.weave.works/docs/net/latest/overview/), [Calico](https://docs.projectcalico.org/getting-started/kubernetes/managed-public-cloud/eks)
+App Orchestration | Terraform, Helm
+App IAM | [KIAM](https://github.com/uswitch/kiam)
+App Secrets | [External-Secrets](https://github.com/godaddy/kubernetes-external-secrets)
+App Management | Kubectl, Kubernetes Dashboard
+Persistence | Attach to EBS
+Cost | EKS costs $0.10/hour, $72/month. EC2 or Fargate costs by vcpu
+
 
 ## Kubernetes Cluster Deployment
 
